@@ -49,6 +49,52 @@ max z = 40.00x₁ + 30.00x₂
 | **3**         | 0.00x₁ + 1.00x₂ + 2.00s₁ + -1.00s₂ + 0.00s₃ + 0.00s₄ = 8.00 <br> 1.00x₁ + 0.00x₂ + -1.00s₁ + 1.00s₂ + 0.00s₃ + 0.00s₄ = 4.00 <br> 0.00x₁ + 0.00x₂ + -1.00s₁ + 1.00s₂ + 1.00s₃ + 0.00s₄ = 4.00 <br> 0.00x₁ + 0.00x₂ + 2.00s₁ + -1.00s₂ + 0.00s₃ + 1.00s₄ = 8.00 <br> 0.00x₁ + 0.00x₂ + 20.00s₁ + 10.00s₂ + 0.00s₃ + 0.00s₄ = 400.00    | —                | —                                    |
 | **Solution**  | **x₁ = 4.00, x₂ = 8.00**                                                                                                                                                                                                                                                                                                                            |                  | Objective function value: 400.00     |
 
+### Test Case 3: Optimization Problem
+
+#### Problem:
+Maximize \( z = 3x_1 + 5x_2 + 4x_3 \)  
+Subject to:  
+\[
+\begin{aligned}
+2x_1 + 3x_2 + 0x_3 & \leq 8 \\
+0x_1 + 2x_2 + 5x_3 & \leq 10 \\
+3x_1 + 2x_2 + 4x_3 & \leq 15 \\
+-1x_1 + 0x_2 + 0x_3 & \leq 0 \\
+0x_1 + -1x_2 + 0x_3 & \leq 0 \\
+0x_1 + 0x_2 + -1x_3 & \leq 0
+\end{aligned}
+\]
+
+#### Iterations:
+
+| Iteration | Pivot Element | Simplex Tableau                                                                                   |
+|-----------|----------------|---------------------------------------------------------------------------------------------------|
+| 1         | Row 1, Column 2 | \( 2x_1 + 3x_2 + 0x_3 + s \) etc. |
+| 2         | Row 2, Column 3 | \( 0.67x_1 + 1.00x_2 + 0.00x_3 + s \) etc. |
+| 3         | Row 3, Column 1 | \( 0.67x_1 + 1.00x_2 + 0.00x_3 + s \) etc. |
+| 4         | Row 3, Column 1 | Solution found: \( x_1 = 2.17, x_2 = 1.22, x_3 = 1.51 \) Objective function value: 18.66 |
+
 ---
 
-This format should be well-structured and clear for your **README** or documentation purposes.
+### Test Case 4: Optimization Problem
+
+#### Problem:
+Maximize \( z = 3x_1 + 2x_2 \)  
+Subject to:  
+\[
+\begin{aligned}
+2x_1 + 1x_2 & \leq 18 \\
+2x_1 + 3x_2 & \leq 42 \\
+3x_1 + 1x_2 & \leq 24 \\
+-1x_1 + 0x_2 & \leq 0 \\
+0x_1 + -1x_2 & \leq 0
+\end{aligned}
+\]
+
+#### Iterations:
+
+| Iteration | Pivot Element | Simplex Tableau                                                                                   |
+|-----------|----------------|---------------------------------------------------------------------------------------------------|
+| 1         | Row 3, Column 1 | \( 2x_1 + 1x_2 + s \) etc. |
+| 2         | Row 3, Column 1 | \( 0x_1 + 0.33x_2 + s \) etc. |
+| 3         | Row 3, Column 1 | Solution found: \( x_1 = 8, x_2 = 6 \) Objective function value: 24 |
