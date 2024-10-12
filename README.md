@@ -1,9 +1,8 @@
-# Test Cases of Programming Task 1:
-"Introduction to Optimization"
+# Test Cases of Programming Task 1: "Introduction to Optimization"
 
 ---
 
-#### **Test Case 1**
+### **Test Case 1**
 
 **Optimization problem:**
 
@@ -28,7 +27,7 @@ max z = 4.00x₁ + 5.00x₂
 
 ---
 
-#### **Test Case 2**
+### **Test Case 2**
 
 **Optimization problem:**
 
@@ -54,7 +53,7 @@ max z = 40.00x₁ + 30.00x₂
 
 ---
 
-#### **Test Case 3**
+### **Test Case 3**
 
 **Optimization problem:**
 
@@ -83,7 +82,7 @@ max z = 3.00x₁ + 5.00x₂ + 4.00x₃
 
 ---
 
-#### **Test Case 4**
+### **Test Case 4**
 
 **Optimization problem:**
 
@@ -111,7 +110,7 @@ max z = 3.00x₁ + 2.00x₂
 
 ---
 
-#### **Test Case 5**
+### **Test Case 5**
 
 **Optimization problem:**
 
