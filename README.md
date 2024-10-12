@@ -49,52 +49,126 @@ max z = 40.00x₁ + 30.00x₂
 | **3**         | 0.00x₁ + 1.00x₂ + 2.00s₁ + -1.00s₂ + 0.00s₃ + 0.00s₄ = 8.00 <br> 1.00x₁ + 0.00x₂ + -1.00s₁ + 1.00s₂ + 0.00s₃ + 0.00s₄ = 4.00 <br> 0.00x₁ + 0.00x₂ + -1.00s₁ + 1.00s₂ + 1.00s₃ + 0.00s₄ = 4.00 <br> 0.00x₁ + 0.00x₂ + 2.00s₁ + -1.00s₂ + 0.00s₃ + 1.00s₄ = 8.00 <br> 0.00x₁ + 0.00x₂ + 20.00s₁ + 10.00s₂ + 0.00s₃ + 0.00s₄ = 400.00    | —                | —                                    |
 | **Solution**  | **x₁ = 4.00, x₂ = 8.00**                                                                                                                                                                                                                                                                                                                            |                  | Objective function value: 400.00     |
 
-### Test Case 3: Optimization Problem
 
-#### Problem:
-Maximize \( z = 3x_1 + 5x_2 + 4x_3 \)  
-Subject to:  
+### Test Case 3: 
+
+**Optimization problem:**
+
+Maximize \( z = 3.00x_1 + 5.00x_2 + 4.00x_3 \)  
+subject to:  
 \[
 \begin{aligned}
-2x_1 + 3x_2 + 0x_3 & \leq 8 \\
-0x_1 + 2x_2 + 5x_3 & \leq 10 \\
-3x_1 + 2x_2 + 4x_3 & \leq 15 \\
--1x_1 + 0x_2 + 0x_3 & \leq 0 \\
-0x_1 + -1x_2 + 0x_3 & \leq 0 \\
-0x_1 + 0x_2 + -1x_3 & \leq 0
+2.00x_1 + 3.00x_2 + 0.00x_3 &\leq 8.00 \\
+0.00x_1 + 2.00x_2 + 5.00x_3 &\leq 10.00 \\
+3.00x_1 + 2.00x_2 + 4.00x_3 &\leq 15.00 \\
+-1.00x_1 + 0.00x_2 + 0.00x_3 &\leq 0.00 \\
+0.00x_1 + -1.00x_2 + 0.00x_3 &\leq 0.00 \\
+0.00x_1 + 0.00x_2 + -1.00x_3 &\leq 0.00
 \end{aligned}
 \]
 
-#### Iterations:
+**Iterations:**
 
-| Iteration | Pivot Element | Simplex Tableau                                                                                   |
-|-----------|----------------|---------------------------------------------------------------------------------------------------|
-| 1         | Row 1, Column 2 | \( 2x_1 + 3x_2 + 0x_3 + s \) etc. |
-| 2         | Row 2, Column 3 | \( 0.67x_1 + 1.00x_2 + 0.00x_3 + s \) etc. |
-| 3         | Row 3, Column 1 | \( 0.67x_1 + 1.00x_2 + 0.00x_3 + s \) etc. |
-| 4         | Row 3, Column 1 | Solution found: \( x_1 = 2.17, x_2 = 1.22, x_3 = 1.51 \) Objective function value: 18.66 |
+- **Iteration 1:**  
+   Pivot element selected: row 1, column 2  
+   Simplex tableau adjusted.
+
+- **Iteration 2:**  
+   Pivot element selected: row 2, column 3  
+   Simplex tableau adjusted.
+
+- **Iteration 3:**  
+   Pivot element selected: row 3, column 1  
+   Simplex tableau adjusted.
+
+- **Iteration 4:**  
+   Final tableau.
+
+**Solution:**
+
+\[
+x_1 = 2.17073, \quad x_2 = 1.21951, \quad x_3 = 1.51220
+\]
+
+Objective function value: **18.65854**
 
 ---
 
-### Test Case 4: Optimization Problem
+### Test Case 4:
 
-#### Problem:
-Maximize \( z = 3x_1 + 2x_2 \)  
-Subject to:  
+**Optimization problem:**
+
+Maximize \( z = 3.00x_1 + 2.00x_2 \)  
+subject to:  
 \[
 \begin{aligned}
-2x_1 + 1x_2 & \leq 18 \\
-2x_1 + 3x_2 & \leq 42 \\
-3x_1 + 1x_2 & \leq 24 \\
--1x_1 + 0x_2 & \leq 0 \\
-0x_1 + -1x_2 & \leq 0
+2.00x_1 + 1.00x_2 &\leq 18.00 \\
+2.00x_1 + 3.00x_2 &\leq 42.00 \\
+3.00x_1 + 1.00x_2 &\leq 24.00 \\
+-1.00x_1 + 0.00x_2 &\leq 0.00 \\
+0.00x_1 + -1.00x_2 &\leq 0.00
 \end{aligned}
 \]
 
-#### Iterations:
+**Iterations:**
 
-| Iteration | Pivot Element | Simplex Tableau                                                                                   |
-|-----------|----------------|---------------------------------------------------------------------------------------------------|
-| 1         | Row 3, Column 1 | \( 2x_1 + 1x_2 + s \) etc. |
-| 2         | Row 3, Column 1 | \( 0x_1 + 0.33x_2 + s \) etc. |
-| 3         | Row 3, Column 1 | Solution found: \( x_1 = 8, x_2 = 6 \) Objective function value: 24 |
+- **Iteration 1:**  
+   Pivot element selected: row 3, column 1  
+   Simplex tableau adjusted.
+
+- **Iteration 2:**  
+   Pivot element selected: row 1, column 2  
+   Simplex tableau adjusted.
+
+- **Iteration 3:**  
+   Final tableau.
+
+**Solution:**
+
+\[
+x_1 = 8.00, \quad x_2 = 2.00
+\]
+
+Objective function value: **28.00**
+
+---
+
+### Test Case 5:
+
+**Optimization problem:**
+
+Maximize \( z = 5.00x_1 + 6.00x_2 \)  
+subject to:  
+\[
+\begin{aligned}
+2.00x_1 + 3.00x_2 &\leq 30.00 \\
+2.00x_1 + 1.00x_2 &\leq 18.00 \\
+3.00x_1 + 1.00x_2 &\leq 24.00 \\
+-1.00x_1 + 0.00x_2 &\leq 0.00 \\
+0.00x_1 + -1.00x_2 &\leq 0.00
+\end{aligned}
+\]
+
+**Iterations:**
+
+- **Iteration 1:**  
+   Pivot element selected: row 1, column 2  
+   Simplex tableau adjusted.
+
+- **Iteration 2:**  
+   Pivot element selected: row 3, column 1  
+   Simplex tableau adjusted.
+
+- **Iteration 3:**  
+   Final tableau.
+
+**Solution:**
+
+\[
+x_1 = 6.00, \quad x_2 = 6.00
+\]
+
+Objective function value: **66.00**
+ 
+
+
