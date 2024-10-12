@@ -51,7 +51,7 @@ max z = 40.00x₁ + 30.00x₂
 
 
 
-###№ **Test Case 3**
+#### **Test Case 3**
 
 **Optimization problem:**
 
