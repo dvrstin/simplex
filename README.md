@@ -5,15 +5,15 @@
 **Optimization problem:**
 
 ```
-max z = 4.00x1 + 5.00x2
+max z = 4.00x₁ + 5.00x₂
 ```
 
 **Subject to constraints:**
 
 ```
-2.00x1 + 4.00x2 ≤ 560.00  
-1.00x1 + 1.00x2 ≤ 170.00  
-2.00x1 + 1.00x2 ≤ 300.00
+2.00x₁ + 4.00x₂ ≤ 560.00  
+1.00x₁ + 1.00x₂ ≤ 170.00  
+2.00x₁ + 1.00x₂ ≤ 300.00
 ```
 
 | **Iteration** | **Simplex Tableau**                                                                                                                                                                                                                                                                                                                                 | **Pivot Element** | **Selected Row and Column**          |
