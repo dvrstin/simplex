@@ -7,68 +7,6 @@ public class SimplexMethod {
 
     public static void main(String[] args) {
 
-
-        System.out.println("Test Case 0:");
-        double[] c0 = {4, 5};
-        double[][] a0 = {
-                {2, 4},
-                {1, 1},
-                {2, 1}
-        };
-        double[] b0 = {560, 170, 300};
-        exeSimp(c0, a0, b0, "max");
-
-        System.out.println("Test Case 1:");
-        double[] c1 = {40, 30};
-        double[][] a1 = {
-                {1, 1},
-                {2, 1},
-                {-1, 0},
-                {0, -1}
-        };
-        double[] b1 = {12, 16, 0, 0};
-        exeSimp(c1, a1, b1, "max");
-
-
-        System.out.println("Test Case 2:");
-        double[] c2 = {3, 5, 4};
-        double[][] a2 = {
-                {2, 3, 0},
-                {0, 2, 5},
-                {3, 2, 4},
-                {-1, 0, 0},
-                {0, -1, 0},
-                {0, 0, -1},
-        };
-        double[] b2 = {8, 10, 15, 0, 0, 0};
-        exeSimp(c2, a2, b2, "max");
-
-
-        System.out.println("Test Case 3:");
-        double[] c3 = {3, 2};
-        double[][] a3 = {
-                {2, 1},
-                {2, 3},
-                {3, 1},
-                {-1, 0},
-                {0, -1},
-        };
-        double[] b3 = {18, 42, 24, 0, 0};
-        exeSimp(c3, a3, b3, "max");
-
-
-        System.out.println("Test Case 4:");
-        double[] c4 = {4, 1};
-        double[][] a4 = {
-                {1, 1},
-                {3, 1},
-                {-1, 0},
-                {0, -1}
-        };
-        double[] b4 = {50, 90, 0, 0};
-        exeSimp(c4, a4, b4, "max");
-
-
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the number of variables of objective function:");
         int nVars = sc.nextInt();
@@ -97,7 +35,7 @@ public class SimplexMethod {
         double[] res = simplex(c, a, b);
 
         if (res == null) {
-            System.out.println("No solution exists or the problem is unbounded!");
+            System.out.println("The method is not applicable!");
         } else {
             System.out.println("Solution found:");
             for (int i = 0; i < res.length - 1; i++) {
@@ -108,23 +46,7 @@ public class SimplexMethod {
 
     }
 
-    private static void exeSimp(double[] c, double[][] a, double[] b, String optimizationType) {
 
-        printProblem(c, a, b, optimizationType);
-
-        double[] res = simplex(c, a, b);
-
-        if (res == null) {
-            System.out.println("No solution exists or the problem is unbounded!");
-        } else {
-            System.out.println("Solution found:");
-            for (int i = 0; i < res.length - 1; i++) {
-                System.out.printf("x%d = %.5f%n", i + 1, res[i]);
-            }
-            System.out.printf("Objective function value: %.5f%n", res[res.length - 1]);
-        }
-        System.out.println();
-    }
 
     private static void printProblem(double[] c, double[][] a, double[] b, String optimizationType) {
         System.out.println("Optimization problem:");
@@ -136,7 +58,7 @@ public class SimplexMethod {
         System.out.println();
         System.out.println("   - subject to the constraints:");
         for (int i = 0; i < a.length; i++) {
-            System.out.print("     - ");
+            System.out.print("      ");
             for (int j = 0; j < a[i].length; j++) {
                 if (j > 0) System.out.print(" + ");
                 System.out.printf("%.2f*x%d", a[i][j], j + 1);
@@ -159,6 +81,11 @@ public class SimplexMethod {
             }
             tbl[i][nVars + i] = 1.0;
             tbl[i][nVars + nConstrs] = b[i];
+
+
+            if (b[i] < 0) {
+                return null;
+            }
         }
 
         for (int j = 0; j < nVars; j++) {
@@ -182,8 +109,8 @@ public class SimplexMethod {
                 }
             }
 
-            if (pCol == -1) {
 
+            if (pCol == -1) {
                 double[] res = new double[nVars + 1];
                 for (int i = 0; i < nConstrs; i++) {
                     for (int j = 0; j < nVars; j++) {
@@ -202,7 +129,6 @@ public class SimplexMethod {
             boolean hasValidPivot = false;
 
             for (int i = 0; i < nConstrs; i++) {
-
                 if (tbl[i][pCol] > EPS) {
                     double ratio = tbl[i][nVars + nConstrs] / tbl[i][pCol];
                     hasValidPivot = true;
@@ -213,17 +139,18 @@ public class SimplexMethod {
                 }
             }
 
-
             if (!hasValidPivot) {
-                System.out.println("The problem is unbounded!");
+                System.out.println("The problem is unbounded: No valid pivot row found.");
                 return null;
             }
 
             System.out.printf("Selected pivot element in row %d and column %d:%n", pRow + 1, pCol + 1);
             printConstrP(tbl, nVars, nConstrs, pRow, pCol);
+
             piv(tbl, pRow, pCol, nVars, nConstrs);
         }
     }
+
 
     private static void piv(double[][] tbl, int pRow, int pCol, int nVars, int nConstrs) {
         int nRows = tbl.length;
